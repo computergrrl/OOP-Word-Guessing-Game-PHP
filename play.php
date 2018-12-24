@@ -1,8 +1,7 @@
 <?php include('inc/Game.php');
 			include('inc/Phrase.php');
-			?>
 
-
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,22 +14,17 @@
 </head>
 
 <body >
+
+
   <?php
   $game = new Game();
   $phrase = new Phrase();
-
+echo "<br />";
 echo $phrase->thephrase;
-echo "<br />";
-
-var_dump($phrase->getCharacters());
-echo "<br />";
-echo "<br />";
-var_dump($phrase->getLetters());
-
-
-
-
 ?>
+
+
+
 <div class="main-container">
     <div id="banner" class="section">
         <h2 class="header">Phrase Hunter</h2>
@@ -38,54 +32,58 @@ var_dump($phrase->getLetters());
             <ul>
 
 
-                <!-- <li class="hide letter">h</li>
-                <li class="hide letter">o</li>
-                <li class="hide letter">w</li>
-                <li class="hide space"> </li>
-                <li class="hide letter a">a</li>
-                <li class="hide letter r">r</li>
-                <li class="hide letter e">e</li>
-                <li class="hide space"> </li>
-                <li class="hide letter y">y</li>
-                <li class="hide letter o">o</li>
-                <li class="hide letter u">u</li> -->
+			<?php
+		foreach($phrase->getCharacters() as $key => $value) {
+
+							if($value == " ") {
+									echo '<li class="hide space">'
+												. $value . '</li>';
+						}  else {
+									 echo '<li class="hide letter">'
+									 			. $value . '</li>';
+											}
+							}
+							?>
+
             </ul>
         </div>
     </div>
     <div id="qwerty" class="section">
+			<form action="play.php" method="get">
         <div class="keyrow">
-            <button class="key">q</button>
-            <button class="key">w</button>
-            <button class="key">e</button>
-            <button class="key">r</button>
-            <button class="key" style="background-color: red" disabled>t</button>
-            <button class="key">y</button>
-            <button class="key">u</button>
-            <button class="key">i</button>
-            <button class="key">o</button>
-            <button class="key">p</button>
+            <button class="key" name="q">q</button>
+            <button class="key" >w</button>
+            <button class="key" name="e">e</button>
+            <button class="key" name="r">r</button>
+            <button class="key" name="t">t</button>
+            <button class="key" name="y">y</button>
+            <button class="key" name="u">u</button>
+            <button class="key" name="i">i</button>
+            <button class="key" name="o">o</button>
+            <button class="key" name="p">p</button>
         </div>
 
         <div class="keyrow">
-            <button class="key">a</button>
-            <button class="key">s</button>
-            <button class="key">d</button>
-            <button class="key">f</button>
-            <button class="key">g</button>
-            <button class="key">h</button>
-            <button class="key">j</button>
-            <button class="key">k</button>
-            <button class="key">l</button>
+            <button class="key" name="a">a</button>
+            <button class="key" name="s">s</button>
+            <button class="key" name="d">d</button>
+            <button class="key" name="f">f</button>
+            <button class="key" name="g">g</button>
+            <button class="key" name="h">h</button>
+            <button class="key" name="j">j</button>
+            <button class="key" name="k">k</button>
+            <button class="key" name="l">l</button>
         </div>
         <div class="keyrow">
-            <button class="key">z</button>
-            <button class="key">x</button>
-            <button class="key">c</button>
-            <button class="key">v</button>
-            <button class="key">b</button>
-            <button class="key">n</button>
-            <button class="key">m</button>
+            <button class="key" name="z">z</button>
+            <button class="key" name="x">x</button>
+            <button class="key" name="c">c</button>
+            <button class="key" name="v">v</button>
+            <button class="key" name="b">b</button>
+            <button class="key" name="n">n</button>
+            <button class="key" name="m">m</button>
         </div>
+			</form>
     </div>
 </div>
 

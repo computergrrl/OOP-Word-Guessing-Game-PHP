@@ -2,7 +2,7 @@
 
 class Phrase
 {
-public $phrases = array("Not in Kansas anymore" , "The knights who say nee", "A very merry unbirthday" , "May the Force be with you" , "An offer he cant refuse" , "i see dead people" , "houston we have a problem" , "no crying in baseball" , "Shaken not stirred");
+public $phrases = array("Not in Kansas anymore" , "knights who say ni", "i see dead people" , "Shaken not stirred" , "No crying in baseball" , "Houston we have a problem");
 
   public function __construct()
   {

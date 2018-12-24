@@ -100,8 +100,8 @@ input[type=submit].correct {
 
 .letter {
   font-size: var(--font-size-medium);
-  height: 65px;
-  width: 65px;
+  height: 45px;
+  width: 45px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   color: black;
@@ -121,8 +121,8 @@ input[type=submit].correct {
   color: #fff;
   background-color: #4ac0d5;
   font-size: 20px;
-  height: 65px;
-  width: 65px;
+  height: 45px;
+  width: 45px;
   padding: 20px 1px 0 1px;
   margin-right: 2px;
   border-radius: 5px;
