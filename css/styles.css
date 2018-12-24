@@ -3,7 +3,7 @@
 
 /* Variables */
 
-/* :root {
+:root {
   --color-win: #78CF82;
   --color-lose: #D94545;
   --color-start: #5b85b7;
@@ -14,19 +14,8 @@
   --font-size-large: 60px;
   --font-size-medium: 20px;
   --transition: all .2s ease-in-out;
-} */
-:root {
-  --color-win: #00FF00;
-  --color-lose: #A52A2A;
-  --color-start: #81DF64;
-  --color-neutral: #445069;
-  --color-neutral-light: #BD64E4;
-  --color-keys: #CF6BEE;
-  --color-keys-light: #EAD2F2;
-  --font-size-large: 60px;
-  --font-size-medium: 20px;
-  --transition: all .2s ease-in-out;
 }
+
 /* main */
 
 * {
@@ -39,7 +28,6 @@ body {
   flex-direction: column;
   display: flex;
   height: 100vh;
-
 }
 
 li, ol, ul {
@@ -52,7 +40,6 @@ h2 {
   text-transform: uppercase;
   font-size: var(--font-size-large);
   margin: 0;
-
 }
 
 h1 {
@@ -100,7 +87,6 @@ input[type=submit].correct {
 
 #phrase ul li{
   margin-top: 15px;
-
 }
 
 /* Title */
@@ -128,14 +114,12 @@ input[type=submit].correct {
 }
 
 .hide {
-  background-color: #000;
-  /* color: transparent; */
+  color: transparent;
 }
 
 .show {
   color: #fff;
   background-color: #4ac0d5;
-  background-color: #000;
   font-size: 20px;
   height: 65px;
   width: 65px;
@@ -207,11 +191,8 @@ input[type=submit].correct {
   background-color: #3a3f58;
 }
 
-/* .start a {
-  color: #fff;
-} */
 .start a {
-  color: #25E189;
+  color: #fff;
 }
 
 .win {

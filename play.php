@@ -19,13 +19,14 @@
   $game = new Game();
   $phrase = new Phrase();
 
-// echo $phrase->getPhrase();
-echo $phrase->getPhrase();
+echo $phrase->thephrase;
+echo "<br />";
 
-echo $phrase->getCharacters();
+var_dump($phrase->getCharacters());
+echo "<br />";
+echo "<br />";
+var_dump($phrase->getLetters());
 
-$getting = $phrase->getCharacters();
-echo $getting[0] . $getting[1] .$getting[2];
 
 
 
@@ -35,7 +36,9 @@ echo $getting[0] . $getting[1] .$getting[2];
         <h2 class="header">Phrase Hunter</h2>
         <div id="phrase" class="section">
             <ul>
-                <li class="hide letter">h</li>
+
+
+                <!-- <li class="hide letter">h</li>
                 <li class="hide letter">o</li>
                 <li class="hide letter">w</li>
                 <li class="hide space"> </li>
@@ -45,7 +48,7 @@ echo $getting[0] . $getting[1] .$getting[2];
                 <li class="hide space"> </li>
                 <li class="hide letter y">y</li>
                 <li class="hide letter o">o</li>
-                <li class="hide letter u">u</li>
+                <li class="hide letter u">u</li> -->
             </ul>
         </div>
     </div>
