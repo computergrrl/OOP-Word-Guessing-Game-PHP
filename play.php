@@ -1,3 +1,8 @@
+<?php include('inc/Game.php');
+			include('inc/Phrase.php');
+			?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,7 +14,22 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </head>
 
-<body>
+<body >
+  <?php
+  $game = new Game();
+  $phrase = new Phrase();
+
+// echo $phrase->getPhrase();
+echo $phrase->getPhrase();
+
+echo $phrase->getCharacters();
+
+$getting = $phrase->getCharacters();
+echo $getting[0] . $getting[1] .$getting[2];
+
+
+
+?>
 <div class="main-container">
     <div id="banner" class="section">
         <h2 class="header">Phrase Hunter</h2>

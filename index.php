@@ -1,3 +1,8 @@
+<?php include('inc/Game.php');
+			include('inc/Phrase.php');
+			?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -10,6 +15,12 @@
 	</head>
 
 	<body>
+		<?php
+		$game = new Game();
+		$phrase = new Phrase();
+		var_dump($game);
+		echo "<br />";
+		var_dump($phrase);?>
 		<div class="main-container">
 			<h2 class="header">Phrase Hunter</h2>
             <form action="play.php">
