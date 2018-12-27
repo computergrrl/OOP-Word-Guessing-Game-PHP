@@ -3,13 +3,17 @@
 class Game
 {
     public $phrases;
-    public $phrase;
+    public $thephrase;
+    public $lives = 5;
+
   public function __construct($phrases, $selected = null, $lives = null)
   {
-      $this->phrases = $phrases;
-      $this->phrase = $phrases->getPhrase();
-      $_SESSION['thephrase'] = $this->phrase;
 
+      $this->phrases = $phrases;
+      if(!$_SESSION) {
+        $_SESSION['phrases'] =  $phrases->getPhrase();
+        $_SESSION['letters'] =  $phrases->getCharacters();
+      }  else {}
 
 
   }
@@ -35,7 +39,8 @@ class Game
 
   public function displayPhrase()
   {
-       foreach($this->phrases->getCharacters() as $key => $value) {
+      if(isset($_SESSION['letters'])) {
+       foreach($_SESSION['letters'] as $key => $value) {
 
           if($value == " ") {    //Check if the character is a space
 
@@ -46,6 +51,7 @@ class Game
                         . $value . '</li>';
                       }
               }
+            }
   }
 
   public function displayLetterKey()

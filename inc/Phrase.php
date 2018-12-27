@@ -22,12 +22,12 @@ public $phrase;
 
   public function getPhrase()
   {
-      return strtolower($this->phrase);
+      return $this->phrase;
   }
 
   public function getCharacters()
   {
-    $string = $this->getPhrase();
+    $string = strtolower($this->getPhrase());
     $chars = str_split($string);
      return $chars;
   }

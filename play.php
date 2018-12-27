@@ -5,16 +5,17 @@ include('inc/Game.php');
 include('inc/Phrase.php');
 
 $phrases = new Phrase();
-$phrase = $phrases->phrase;
 $game = new Game($phrases);
-// $phrases = $phrase->getRandomPhrase();
 
-// $game = new Game($phrases);
-var_dump($game->phrases->getPhrase());
+// var_dump($_POST);
 echo "<br />";
 echo "<br />";
+//create a $_SESSION variable to store the phrase
+// if(!$_SESSION) {
+//   $_SESSION['phrases'] = $game;
+// }
 
-var_dump($_SESSION);
+var_dump($_SESSION['phrases']);
 
 
 ?>
@@ -40,7 +41,7 @@ var_dump($_SESSION);
 
 
 			<?php
-			$game->displayPhrase()
+			$game->displayPhrase();
 
 							?>
 
@@ -48,11 +49,11 @@ var_dump($_SESSION);
         </div>
     </div>
     <div id="qwerty" class="section">
-
+        <form method="post">
       <?php $game->displayKeyboard(); ?>
 
-    
 
+    </form>
     </div>
 
 </div>
