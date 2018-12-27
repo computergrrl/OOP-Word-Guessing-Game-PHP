@@ -1,5 +1,6 @@
-<?php include('inc/Game.php');
-			include('inc/Phrase.php');
+<?php
+session_start();
+
 			?>
 
 
@@ -15,16 +16,15 @@
 	</head>
 
 	<body>
-		<?php
-		$game = new Game();
-		$phrase = new Phrase();
-		?>
+
 		<div class="main-container">
 			<h2 class="header">Phrase Hunter</h2>
             <form action="play.php">
                 <input id="btn__reset" type="submit" value="Start Game" />
             </form>
 		</div>
-
+<?php
+session_destroy();
+?>
 	</body>
 </html>

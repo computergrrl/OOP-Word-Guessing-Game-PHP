@@ -7,8 +7,8 @@
   --color-win: #78CF82;
   --color-lose: #D94545;
   --color-start: #5b85b7;
-  --color-neutral: #445069;
-  --color-neutral-light: #D2D2D2;
+  --color-neutral: #6E9ED5;
+  --color-neutral-light: #C77CD5;
   --color-keys: #37474F;
   --color-keys-light: #E5E5E5;
   --font-size-large: 60px;
@@ -24,6 +24,13 @@
 }
 
 body {
+  /*  Background gradient code copied from CSS gradient generator
+  at https://cssgradient.io/   */
+  background: rgb(86,2,113);
+  background: linear-gradient(0deg,
+    rgba(86,2,113,1) 0%,
+    rgba(191,116,215,1) 17%,
+    rgba(245,239,247,1) 100%);
   justify-content: space-evenly;
   flex-direction: column;
   display: flex;
@@ -38,11 +45,13 @@ li, ol, ul {
 h2 {
   margin: 0;
   text-transform: uppercase;
+
   font-size: var(--font-size-large);
   margin: 0;
 }
 
 h1 {
+  background-color: var(--color-neutral);
   font-size: 30px;
 }
 
@@ -92,7 +101,7 @@ input[type=submit].correct {
 /* Title */
 
 .header {
-  color: #3a3f58;
+  color: #732F95;
 }
 
 
@@ -106,6 +115,7 @@ input[type=submit].correct {
   margin-right: 2px;
   color: black;
   background: var(--color-neutral-light);
+  border: 1px solid black;
   border-radius: 5px;
 }
 
@@ -114,6 +124,7 @@ input[type=submit].correct {
 }
 
 .hide {
+  /*color: transparent;*/
   color: transparent;
 }
 

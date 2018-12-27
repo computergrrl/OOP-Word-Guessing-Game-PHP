@@ -2,12 +2,14 @@
 
 class Phrase
 {
-public $phrases = array("Not in Kansas anymore" , "knights who say ni", "i see dead people" , "Shaken not stirred" , "No crying in baseball" , "Houston we have a problem");
+public $phrases = array("Not in Kansas anymore" , "may the force be with you" , "knights who say ni", "i see dead people" , "Shaken not stirred" , "No crying in baseball" , "Houston we have a problem");
+
+public $phrase;
 
   public function __construct()
   {
-    $thephrase = $this->getRandomPhrase();
-    $this->thephrase = $thephrase;
+    $phrase = $this->getRandomPhrase();
+    $this->phrase = $phrase;
   }
 
   public function getRandomPhrase()
@@ -20,7 +22,7 @@ public $phrases = array("Not in Kansas anymore" , "knights who say ni", "i see d
 
   public function getPhrase()
   {
-      return strtolower($this->thephrase);
+      return strtolower($this->phrase);
   }
 
   public function getCharacters()
