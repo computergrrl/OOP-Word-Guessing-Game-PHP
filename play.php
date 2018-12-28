@@ -1,23 +1,32 @@
 <?php
 session_start();
-
 include('inc/Game.php');
 include('inc/Phrase.php');
 
 $phrases = new Phrase();
 $game = new Game($phrases);
+$selected = "";
 
-// var_dump($_POST);
 echo "<br />";
 echo "<br />";
-//create a $_SESSION variable to store the phrase
-// if(!$_SESSION) {
-//   $_SESSION['phrases'] = $game;
-// }
-
-var_dump($_SESSION['phrases']);
 
 
+if(!$_SESSION) {
+  $_SESSION['phrase'] = $game->phrases->getPhrase();
+  $_SESSION['letters'] = $game->phrases->getCharacters();
+  $_SESSION['unique_chars'] = $game->phrases->getLetters();
+  // $_SESSION['selected'] = $game->selected;
+}
+
+if(isset($_POST['buttons_array'])) {
+  $selected = $_POST['buttons_array'];
+}
+//echo $selected;
+if($selected != null) {
+  echo '$selected has a value and the value is ' . $selected . '!';
+  $selected = $_SESSION['selected'];
+}
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -41,7 +50,8 @@ var_dump($_SESSION['phrases']);
 
 
 			<?php
-			$game->displayPhrase();
+            $game->displayPhrase();
+
 
 							?>
 
@@ -49,7 +59,7 @@ var_dump($_SESSION['phrases']);
         </div>
     </div>
     <div id="qwerty" class="section">
-        <form method="post">
+        <form action="play.php" method="post">
       <?php $game->displayKeyboard(); ?>
 
 

@@ -33,7 +33,7 @@ public $phrase;
   }
 
   public function getLetters()
-  {
+  { 
       $chars = $this->getCharacters();
       $result = array_unique($chars);
       return $result;
