@@ -69,6 +69,16 @@ button, input[type=submit] {
   transition: var(--transition);
   cursor: pointer;
 }
+button:disabled {
+  background-color:#826491;
+  cursor:text;
+  }
+  .incorrect {
+    background-color: var(--color-lose);
+  }
+  .correct {
+    background-color: var(--color-win);
+  }
 input[type=submit].incorrect {
   background-color: var(--color-lose);
 }

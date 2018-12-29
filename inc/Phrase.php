@@ -33,21 +33,24 @@ public $phrase;
   }
 
   public function getLetters()
-  { 
+  {
       $chars = $this->getCharacters();
       $result = array_unique($chars);
       return $result;
   }
 
-  public function checkLetters($selected)
+  public function checkLetter($selected)
   {
+
     $check = $selected;
-    $letters = $this->getLetters();
+    $letters = $_SESSION['unique_chars'];
     if(in_array($check, $letters)) {
         echo "Letter found!";
+        return true;
 
     }  else {
         echo "None of that letter!";
+        return false;
     }
 
   }

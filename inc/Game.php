@@ -52,7 +52,7 @@ class Game
 
   public function displayLetterKey()
   {
-
+    
   }
 
   public function displayKeyboard()
@@ -62,6 +62,7 @@ class Game
             echo '<div class="keyrow">';
             //create loop to print out first row html buttons from button_array
               for($i=0; $i < 10; $i++) {
+
                 echo $buttons_array[$i];
               }
               echo '</div>';
