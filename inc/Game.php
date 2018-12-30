@@ -16,16 +16,22 @@ class Game
 
   public function numberLost()
   {
-
+    $numberLost = $_SESSION['score'];
+    return $numberLost;
   }
 
   public function checkForWin()
   {
+
   }
 
   public function checkForLose()
   {
-
+          if($this->numberLost() == 0) {
+              return true;
+          }   else {
+                return false;
+          }
   }
 
   public function gameOver()
@@ -52,7 +58,7 @@ class Game
 
   public function displayLetterKey()
   {
-    
+
   }
 
   public function displayKeyboard()
