@@ -25,6 +25,13 @@ if(isset($_POST['buttons_array'])) {
   $selected = $_POST['buttons_array'];
   $game->phrases->checkLetter($selected);//call on checkLetter method to check and see if letter is found within the phrase
 
+echo "<br />";
+echo "<br />";
+
+if($game->checkForLose()) {
+    echo "Game Over";
+}  else {}
+
 
 
   // if(in_array($selected , $_SESSION['selected'])) {
@@ -32,17 +39,17 @@ if(isset($_POST['buttons_array'])) {
   // } else { array_push($_SESSION['selected'] , $selected);
   // }
 }
-var_dump($game->checkForLose());
+// var_dump($game->checkForLose());
 //check to see if the game is over and if so display a button to start the game over
-if($game->checkForLose()) {
-      echo "<p align='center'><h2> Game Over!</h2>" ;
-      echo "<form action='index.php'>
-      . <input type='submit' value='Play Again?'></form>";
-      echo "</p>";
-}
+// if($game->checkForLose()) {
+//       echo "<p align='center'><h2> Game Over!</h2>" ;
+//       echo "<form action='index.php'>
+//       . <input type='submit' value='Play Again?'></form>";
+//       echo "</p>";
+// }
 
-echo "<br />";
-echo "<br />";
-var_dump($_SESSION['score']);
+// echo "<br />";
+// echo "<br />";
+// var_dump($_SESSION['score']);
 
 ?>

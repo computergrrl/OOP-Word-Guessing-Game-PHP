@@ -16,7 +16,7 @@ session_start();
 	</head>
 
 	<body>
-
+		
 		<div class="main-container">
 			<h2 class="header">Phrase Hunter</h2>
             <form action="play.php">

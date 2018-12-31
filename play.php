@@ -20,7 +20,9 @@ include('inc/header.php');
 </head>
 
 <body >
-
+  <div id="scoreboard">
+   <?php $game->numberLost(); ?>
+ </div>
 
 <div class="main-container">
     <div id="banner" class="section">

@@ -17,6 +17,17 @@ class Game
   public function numberLost()
   {
     $numberLost = $_SESSION['score'];
+    $hearts = array(5, 4, 3, 2, 1);
+
+    foreach($hearts as $heart) {
+        if($heart <= $numberLost) {
+          echo "<img src='images/liveHeart.png'>";
+        }  else {
+           echo "<img src='images/lostHeart.png'>";
+        }
+
+    }
+
     return $numberLost;
   }
 
@@ -27,7 +38,7 @@ class Game
 
   public function checkForLose()
   {
-          if($this->numberLost() == 0) {
+          if($_SESSION['score'] == 0) {
               return true;
           }   else {
                 return false;
