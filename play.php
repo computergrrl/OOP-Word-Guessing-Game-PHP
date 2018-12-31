@@ -21,7 +21,8 @@ include('inc/header.php');
 
 <body >
   <div id="scoreboard">
-   <?php $game->numberLost(); ?>
+   <?php echo $game->displayScore();
+         $game->numberLost(); ?>
  </div>
 
 <div class="main-container">

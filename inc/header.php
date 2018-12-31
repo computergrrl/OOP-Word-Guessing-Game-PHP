@@ -15,22 +15,23 @@ if(!$_SESSION) {
   $_SESSION['selected'] = $game->selected;
 
   $_SESSION['score'] = $game->lives;
+
 }
 
-
-
-
+if($_SESSION['score'] == 0 || $_SESSION['score'] < 0 ) {
+  $_SESSION['score'] = 1;
+}
 //if a button from the keyboard is picked, set the value of that button to the variable $selected.
 if(isset($_POST['buttons_array'])) {
   $selected = $_POST['buttons_array'];
   $game->phrases->checkLetter($selected);//call on checkLetter method to check and see if letter is found within the phrase
 
+  if($game->checkForLose()) {
+      echo "<h3 class='gameover'>Game Over</h3>";
+  }
 echo "<br />";
 echo "<br />";
 
-if($game->checkForLose()) {
-    echo "Game Over";
-}  else {}
 
 
 

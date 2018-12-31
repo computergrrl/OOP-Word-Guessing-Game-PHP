@@ -17,13 +17,14 @@ class Game
   public function numberLost()
   {
     $numberLost = $_SESSION['score'];
+
     $hearts = array(5, 4, 3, 2, 1);
 
     foreach($hearts as $heart) {
         if($heart <= $numberLost) {
-          echo "<img src='images/liveHeart.png'>";
+          echo "<img src='images/liveHeart2_resize.png' class='heart'>";
         }  else {
-           echo "<img src='images/lostHeart.png'>";
+           echo "<img src='images/lostHeart2_resize.png' class='heart'>";
         }
 
     }
@@ -104,8 +105,9 @@ class Game
   }
 
   public function displayScore()
-  {
-
+  {     $numberLost = $_SESSION['score'];
+        $score = "<h3> Lives: " . $numberLost . "</h3>";
+        return $score;
   }
 
 }
