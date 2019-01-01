@@ -5,8 +5,8 @@ include('inc/Phrase.php');
 
 $phrases = new Phrase();
 $game = new Game($phrases);
-
 include('inc/header.php');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

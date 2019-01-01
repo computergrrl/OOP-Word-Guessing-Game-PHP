@@ -13,6 +13,8 @@ public $phrase;
     $this->phrase = $phrase;//assign the random phrase to the $phrase property
   }
 
+
+
   public function getRandomPhrase()
   {
     $phrases = $this->phrases;
@@ -28,6 +30,7 @@ public $phrase;
       return $this->phrase;
   }
 
+
   public function getCharacters()
   {
     $string = strtolower($this->getPhrase());//convert all characters from selected phrase to lowercase
@@ -37,6 +40,7 @@ public $phrase;
      return $chars;
   }
 
+
   public function getLetters()
   {
       $chars = $this->getCharacters();//assign a variable to the array of characters returned by the getCharacters method
@@ -44,6 +48,7 @@ public $phrase;
       $result = array_unique($chars);//select only unique letters from the array of letters given
       return $result;
   }
+
 
   public function checkLetter($selected)
   {
@@ -56,7 +61,7 @@ public $phrase;
 
         return true;
 
-    }  else {
+    }  else {   //else add letter to $selected array and remove one life
         array_push($_SESSION['selected'] , $selected );
         $_SESSION['score'] -= 1;
 
@@ -64,4 +69,5 @@ public $phrase;
     }
 
   }
+  
 }

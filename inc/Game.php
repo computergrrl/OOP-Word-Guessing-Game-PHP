@@ -10,14 +10,13 @@ class Game
   public function __construct(Phrase $phrases, $selected = null, $lives = null)
   {
 
-      $this->phrases = $phrases;
-      $this->selected = [];
+      $this->phrases = $phrases;//Phrase object
+      $this->selected = [];//array of selected letters
   }
 
   public function numberLost()
   {
-    $numberLost = $_SESSION['score'];
-
+    $numberLost = $_SESSION['score'];//create $numberLost variable that is equal to the scorekeeping session variable
 
     $hearts = array(5, 4, 3, 2, 1);// create array equal to number of lives
 
@@ -28,6 +27,7 @@ class Game
               if($heart <= $numberLost) {
                 echo "<img src='images/liveHeart2_resize.png' class='heart'>";
               }
+
               // else display a lost heart image
                   else {
                  echo "<img src='images/lostHeart2_resize.png' class='heart'>";
@@ -66,7 +66,13 @@ class Game
 
      foreach($_SESSION['letters'] as $key => $value) {
 
-        if($value == " ") {    //Check if the character is a space
+        if(in_array($value , $_SESSION['selected']) && in_array($value , $_SESSION['letters'])) {
+
+          echo '<li class="show letter">'
+               . $value . '</li>';
+        }
+
+        elseif($value == " ") {    //Check if the character is a space
 
         echo '<li class="hide space">' // if it's a space then use hide space
                 . $value . '</li>';
