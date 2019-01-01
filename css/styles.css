@@ -75,21 +75,19 @@ button, input[type=submit] {
   transition: var(--transition);
   cursor: pointer;
 }
-button:disabled {
+
+.incorrect:disabled {
   background-color:#826491;
+  border: solid 1px red;
+  color: red;
   cursor:text;
-  }
-  .incorrect {
-    background-color: var(--color-lose);
-  }
-  .correct {
-    background-color: var(--color-win);
-  }
-input[type=submit].incorrect {
-  background-color: var(--color-lose);
 }
-input[type=submit].correct {
-  background-color: var(--color-win);
+
+.correct:disabled {
+background-color:#826491;
+border: solid 1px lime;
+color: green;
+cursor:text;
 }
 
 #btn__reset {

@@ -24,22 +24,16 @@ if($_SESSION['score'] == 0 || $_SESSION['score'] < 0 ) {
 //if a button from the keyboard is picked, set the value of that button to the variable $selected.
 if(isset($_POST['buttons_array'])) {
   $selected = $_POST['buttons_array'];
-  $game->phrases->checkLetter($selected);//call on checkLetter method to check and see if letter is found within the phrase
+  $game->phrases->checkLetter($selected);
 
-  if($game->checkForLose()) {
-      echo "<h3 class='gameover'>Game Over</h3>";
-  }
-echo "<br />";
-echo "<br />";
+  var_dump($_SESSION['selected']);
 
-
-
-
-  // if(in_array($selected , $_SESSION['selected'])) {
-  //   echo "you already picked that letter!";
-  // } else { array_push($_SESSION['selected'] , $selected);
-  // }
 }
+if($game->checkForLose()) {
+    echo "<h3 class='gameover'>Game Over</h3>";
+}
+
+
 // var_dump($game->checkForLose());
 //check to see if the game is over and if so display a button to start the game over
 // if($game->checkForLose()) {
@@ -48,9 +42,5 @@ echo "<br />";
 //       . <input type='submit' value='Play Again?'></form>";
 //       echo "</p>";
 // }
-
-// echo "<br />";
-// echo "<br />";
-// var_dump($_SESSION['score']);
 
 ?>

@@ -48,23 +48,17 @@ public $phrase;
   public function checkLetter($selected)
   {
 
-
     $letters = $_SESSION['unique_chars'];//array to check for letter
 
     if(in_array($selected, $letters)) {//if letter is found in array
-
-        echo "Letter found!";
 
         array_push($_SESSION['selected'] , $selected );//add letter to $selected letters array
 
         return true;
 
     }  else {
-        echo "None of that letter!";
-
+        array_push($_SESSION['selected'] , $selected );
         $_SESSION['score'] -= 1;
-
-        array_push($_SESSION['selected'] , $selected);//add letter to $selected letters array
 
         return false;
     }

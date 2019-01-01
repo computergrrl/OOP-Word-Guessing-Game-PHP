@@ -18,14 +18,20 @@ class Game
   {
     $numberLost = $_SESSION['score'];
 
-    $hearts = array(5, 4, 3, 2, 1);
 
-    foreach($hearts as $heart) {
-        if($heart <= $numberLost) {
-          echo "<img src='images/liveHeart2_resize.png' class='heart'>";
-        }  else {
-           echo "<img src='images/lostHeart2_resize.png' class='heart'>";
-        }
+    $hearts = array(5, 4, 3, 2, 1);// create array equal to number of lives
+
+
+          foreach($hearts as $heart) {
+
+//display a live Heart image for every number of lives left
+              if($heart <= $numberLost) {
+                echo "<img src='images/liveHeart2_resize.png' class='heart'>";
+              }
+              // else display a lost heart image
+                  else {
+                 echo "<img src='images/lostHeart2_resize.png' class='heart'>";
+              }
 
     }
 
@@ -38,76 +44,130 @@ class Game
   }
 
   public function checkForLose()
-  {
-          if($_SESSION['score'] == 0) {
-              return true;
-          }   else {
-                return false;
+  {       //check if $_SESSION score is equqal to zero
+              if($_SESSION['score'] == 0) {
+                return true;  //if it is, game is over so return true
+                 $this->gameOver();
+          }
+              else {
+                  return false;  //otherwise return false
           }
   }
 
   public function gameOver()
   {
+    if($this->checkForLose()) {
 
+    }
   }
 
   public function displayPhrase()
   {
 
-       foreach($_SESSION['letters'] as $key => $value) {
+     foreach($_SESSION['letters'] as $key => $value) {
 
-          if($value == " ") {    //Check if the character is a space
+        if($value == " ") {    //Check if the character is a space
 
-            echo '<li class="hide space">'
-                  . $value . '</li>'; // if it's a space then use hide space
-            }  else {
-                   echo '<li class="hide letter">'
-                        . $value . '</li>';
-                      }
+        echo '<li class="hide space">' // if it's a space then use hide space
+                . $value . '</li>';
+          }
+
+
+                  else {
+                 echo '<li class="hide letter">'
+                      . $value . '</li>';
+                    }
               }
   }
 
 
-  public function displayLetterKey()
-  {
 
-  }
 
   public function displayKeyboard()
   {
-    include('buttons_array.php');
+    include('letters_array.php');
 
+/********************TOP KEYBOARD ROW ****************************/
             echo '<div class="keyrow">';
-            //create loop to print out first row html buttons from button_array
-              for($i=0; $i < 10; $i++) {
+            foreach($top_line as $letter) {
+              if(in_array($letter , $_SESSION['selected']) &&
+                  in_array($letter, $_SESSION['unique_chars'])) {
 
-                echo $buttons_array[$i];
-              }
-              echo '</div>';
+              echo '<button name="buttons_array"
+                    class="correct" disabled value="'. $letter .'">'
+                        . $letter .'</button>';
 
+              }   elseif(in_array($letter , $_SESSION['selected'])) {
+                echo '<button name="buttons_array"
+                      class="incorrect" disabled  value="'. $letter .'">'
+                          . $letter .'</button>';
 
-              echo '<div class="keyrow">';
-          //create loop to print out second row html buttons from button_array
-              for($i=10; $i < 19; $i++) {  //set $i to 10 to offset first row
-                echo $buttons_array[$i];
-              }
+                  }   else {
+                echo '<button name="buttons_array" value="'
+                      . $letter .'">'
+                      . $letter .'</button>';
 
-                echo '</div>';
-
-            echo '<div class="keyrow">';
-          //create loop to print out third row html buttons from button_array
-            for($i=19; $i < 26; $i++) {  //set $i to 19 to offset second row
-              echo $buttons_array[$i];
+                      }
             }
+            echo "</div>";
+/*******************MIDDLE KEYBOARD ROW*******************************/
+            echo '<div class="keyrow">';
+            foreach($middle_line as $letter) {
+              if(in_array($letter , $_SESSION['selected']) &&
+                  in_array($letter, $_SESSION['unique_chars'])) {
 
-                echo '</div>';
+              echo '<button name="buttons_array"
+                    class="correct" disabled value="'. $letter .'">'
+                        . $letter .'</button>';
 
-  }
+              }   elseif(in_array($letter , $_SESSION['selected'])) {
+                echo '<button name="buttons_array"
+                      class="incorrect" disabled  value="'. $letter .'">'
+                          . $letter .'</button>';
+
+                  }   else {
+                echo '<button name="buttons_array" value="'
+                      . $letter .'">'
+                      . $letter .'</button>';
+
+                      }
+            }
+            echo "</div>";
+/**************************BOTTOM KEYBOARD ROW************************/
+            echo '<div class="keyrow">';
+            foreach($bottom_line as $letter) {
+              if(in_array($letter , $_SESSION['selected']) &&
+                  in_array($letter, $_SESSION['unique_chars'])) {
+
+              echo '<button name="buttons_array"
+                    class="correct" disabled value="'. $letter .'">'
+                        . $letter .'</button>';
+
+              }   elseif(in_array($letter , $_SESSION['selected'])) {
+                echo '<button name="buttons_array"
+                      class="incorrect" disabled value="'. $letter .'">'
+                          . $letter .'</button>';
+
+                  }   else {
+                echo '<button name="buttons_array" value="'
+                      . $letter .'">'
+                      . $letter .'</button>';
+
+                      }
+            }
+            echo "</div>";
+
+
+}
+
+
+
 
   public function displayScore()
-  {     $numberLost = $_SESSION['score'];
-        $score = "<h3> Lives: " . $numberLost . "</h3>";
-        return $score;
+  {
+     //create HTML string to display the current score
+        $score = "<h3> Lives: " . $_SESSION['score'] . "</h3>";
+        return $score;   //return string
   }
 
 }
