@@ -26,7 +26,7 @@ if(isset($_POST['buttons_array'])) {
   $selected = $_POST['buttons_array'];
   $game->phrases->checkLetter($selected);
 
-  var_dump($_SESSION['selected']);
+  
 
 }
 if($game->checkForLose()) {

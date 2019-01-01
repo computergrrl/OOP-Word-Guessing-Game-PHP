@@ -64,15 +64,20 @@ class Game
   public function displayPhrase()
   {
 
+
      foreach($_SESSION['letters'] as $key => $value) {
 
-        if(in_array($value , $_SESSION['selected']) && in_array($value , $_SESSION['letters'])) {
+//check to see if letter the letters have been selected
+        if(in_array($value , $_SESSION['selected'])) {
 
           echo '<li class="show letter">'
                . $value . '</li>';
         }
 
-        elseif($value == " ") {    //Check if the character is a space
+
+//if letter hasn't been selected than check if character is a space and then display "hide space" or "hide letter" class accordingly
+
+        elseif($value == " ") {
 
         echo '<li class="hide space">' // if it's a space then use hide space
                 . $value . '</li>';
