@@ -75,7 +75,10 @@ button, input[type=submit] {
   transition: var(--transition);
   cursor: pointer;
 }
-
+button:disabled {
+  background-color:#826491;
+  cursor:text;
+}
 .incorrect:disabled {
   background-color:#826491;
   border: solid 1px red;
@@ -104,9 +107,16 @@ cursor:text;
   text-align: center;
 }
 
+.gamewin {
+  font-size: var(--font-size-mid);
+  color: lime;
+  text-align: center;
+
+}
 .gameover {
   font-size: var(--font-size-mid);
   color: red;
+  text-align: center;
 
 }
 

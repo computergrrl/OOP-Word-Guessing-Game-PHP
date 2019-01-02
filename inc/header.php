@@ -15,23 +15,23 @@ if(!$_SESSION) {
   $_SESSION['selected'] = $game->selected;
 
   $_SESSION['score'] = $game->lives;
+  $_SESSION['counter'] = 0;
 
 }
 
 if($_SESSION['score'] == 0 || $_SESSION['score'] < 0 ) {
-  $_SESSION['score'] = 1;
+  $_SESSION['score'] = 0;
 }
 //if a button from the keyboard is picked, set the value of that button to the variable $selected.
 if(isset($_POST['buttons_array'])) {
   $selected = $_POST['buttons_array'];
   $game->phrases->checkLetter($selected);
 
-  
+}
 
-}
-if($game->checkForLose()) {
-    echo "<h3 class='gameover'>Game Over</h3>";
-}
+
+$game->checkForWin();
+$game->gameOver();
 
 
 // var_dump($game->checkForLose());
