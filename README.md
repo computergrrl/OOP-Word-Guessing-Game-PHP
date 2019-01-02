@@ -13,6 +13,8 @@ If the selected letter is not in the phrase, one of the player's hearts is remov
 The player keeps choosing letters until they reveal all the letters in the phrase, or they make 5 incorrect guesses.
 ***********************************************************************
 
+Game has been tested in and is compatible with current versions of Google Chrome and Mozilla Firefox (css animations seem to only work in Chrome)
+
 2 objects used in this code; Game object and Phrase object.
 
 Combination of object methods and session variables used to display game and control interactive gameplay
