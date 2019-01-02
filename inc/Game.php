@@ -12,7 +12,9 @@ class Game
 
       $this->phrases = $phrases;//Phrase object
       $this->selected = [];//array of selected letters
+
   }
+/**********************************************/
 
   public function numberLost()
   {
@@ -35,30 +37,42 @@ class Game
 
     }
 
-    return $numberLost;
+    return $numberLost; //returns number of guessed letters NOT in the phrase.
   }
+
+/**********************************************/
+
 
   public function checkForWin()
   {
-            $arr1 = $_SESSION['letters'];
-            $arr2 = $_SESSION['selected'];
+            $arr1 = $_SESSION['letters'];//array of variables from phrase
+            $arr2 = $_SESSION['selected'];//array of letters selected so far
+
+/*create array that contains whatever letters are in both $arr1 and $arr 2 - this array will be the array of correct, guessed letters */
             $arr3 = array_intersect($arr1 , $arr2);
+
+/* use a loop to count all of the characters in the phrase ($arr1) that are NOT spaces. Store that number in the $counter variable*/
             $counter = $_SESSION['counter'];
                   foreach($arr1 as $letter) {
                       if($letter != " ") {
                           $counter++;
                       }
                   }
+
+/* Compare the number of correctly guessed letters with the number of letters that aren't spaces in the phrase.  When they're equal then all the correct letters have been guessed and game is won */
     if(count($arr3) == $counter) {
-        echo "<h3 class='gamewin'>YOU WIN!!! </h3>";
+            session_destroy();
+        echo "<h3 class='bounce gamewin'>YOU WIN!!! </h3>";
+        echo "<form action='play.php'>
+           . <input type='submit' value='Play Again?'></form>";
         return true;
     }  else {
             return false;
     }
-
-
-
 }
+
+/**********************************************/
+
   public function checkForLose()
   {       //check if $_SESSION score is equqal to zero
               if($_SESSION['score'] == 0) {
@@ -70,10 +84,14 @@ class Game
                 }
   }
 
+/**********************************************/
   public function gameOver()
   {
             if($this->checkForLose()) {
-                echo "<h3 class='gameover'>Game Over</h3>";
+                    session_destroy();
+                echo "<h3 class='rotate gameover'>Game Over</h3>";
+                echo "<form action='play.php'>
+                   . <input type='submit' value='Play Again?'></form>";
                 return true;
             }  else {
                 return false;
@@ -81,6 +99,7 @@ class Game
 
   }
 
+/**********************************************/
   public function displayPhrase()
   {
 
@@ -104,23 +123,22 @@ class Game
           }
 
 
-                  else {
+                  else {     //otherwise show hide letter box
                  echo '<li class="hide letter">'
                       . $value . '</li>';
                     }
               }
   }
 
-
-
-
+/**********************************************/
   public function displayKeyboard()
   {
     include('letters_array.php');
-/*First checks to see if game is over and if it is then disables the entire keyboard*/
-            if($this->checkForLose() || $this->checkForWin() == true) {
 
-      /****Top row of keys (disabled)  ******/
+/*First checks to see if game is over and if it is then disables the entire keyboard*/
+            if($this->gameOver() || $this->checkForWin()) {
+
+          /******** Top row of keys (disabled)  *********/
               echo '<div class="keyrow">';
 
                   foreach($top_line as $letter) {
@@ -131,7 +149,7 @@ class Game
 
                 echo '</div>';
 
-      /****Top row of keys (disabled)  ******/
+          /******** Middle row of keys (disabled)  *********/
                 echo '<div class="keyrow">';
 
                     foreach($middle_line as $letter) {
@@ -142,7 +160,7 @@ class Game
 
                   echo '</div>';
 
-      /****Bottom row of keys (disabled)  ******/
+          /******** Bottom row of keys (disabled)  *********/
                   echo '<div class="keyrow">';
 
                       foreach($bottom_line as $letter) {
@@ -153,6 +171,8 @@ class Game
 
                     echo '</div>';
                 } else{
+
+
       /*if game is not over then set up keyboard for gameplay*/
 
 /********************TOP KEYBOARD ROW ****************************/
@@ -170,11 +190,14 @@ class Game
 
   /*If letter is selected and is NOT the phrase  */
               }   elseif(in_array($letter , $_SESSION['selected'])) {
+
+/* then add class="incorrect" and disable the button */
                 echo '<button name="buttons_array"
                       class="incorrect" disabled  value="'. $letter .'">'
                           . $letter .'</button>';
 
-                  }   else {  /* else button is enabled */
+/* else button is enabled */
+                  }   else {
                 echo '<button name="buttons_array" value="'
                       . $letter .'">'
                       . $letter .'</button>';
@@ -197,11 +220,14 @@ class Game
 
   /*If letter is selected and is NOT the phrase  */
               }   elseif(in_array($letter , $_SESSION['selected'])) {
+
+/* then add class="incorrect" and disable the button */
                 echo '<button name="buttons_array"
                       class="incorrect" disabled  value="'. $letter .'">'
                           . $letter .'</button>';
 
-                  }   else {    /* else button is enabled */
+/* else button is enabled */
+                  }   else {
                 echo '<button name="buttons_array" value="'
                       . $letter .'">'
                       . $letter .'</button>';
@@ -224,12 +250,14 @@ class Game
 
   /*If letter is selected and is NOT the phrase  */
               }   elseif(in_array($letter , $_SESSION['selected'])) {
+
+/* then add class="incorrect" and disable the button */
                 echo '<button name="buttons_array"
                       class="incorrect" disabled value="'. $letter .'">'
                           . $letter .'</button>';
 
-
-                  }   else {   /* else button is enabled */
+/* else button is enabled */
+                  }   else {
                 echo '<button name="buttons_array" value="'
                       . $letter .'">'
                       . $letter .'</button>';
@@ -239,16 +267,14 @@ class Game
             echo "</div>";
 
           }
-
-
 }
 
+/**********************************************/
   public function displayScore()
   {
      //create HTML string to display the current score
         $score = "<h3> Lives: " . $_SESSION['score'] . "</h3>";
         return $score;   //return string
   }
-
 
 }

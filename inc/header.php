@@ -14,33 +14,24 @@ if(!$_SESSION) {
   //session variable for storing the array of letters selected so far
   $_SESSION['selected'] = $game->selected;
 
+//session variable for keeping track of lives lost
   $_SESSION['score'] = $game->lives;
+
+  /* session variable used in checkForWin method, used to store number of characters in phrase that are NOT spaces*/
   $_SESSION['counter'] = 0;
 
 }
 
-if($_SESSION['score'] == 0 || $_SESSION['score'] < 0 ) {
-  $_SESSION['score'] = 0;
-}
-//if a button from the keyboard is picked, set the value of that button to the variable $selected.
+//if a button from the keyboard is picked, set the value of that button to the variable named $selected.
 if(isset($_POST['buttons_array'])) {
   $selected = $_POST['buttons_array'];
+
+//check selected letter to see if it's in the phrase
   $game->phrases->checkLetter($selected);
 
 }
-
-
-$game->checkForWin();
-$game->gameOver();
-
-
-// var_dump($game->checkForLose());
-//check to see if the game is over and if so display a button to start the game over
-// if($game->checkForLose()) {
-//       echo "<p align='center'><h2> Game Over!</h2>" ;
-//       echo "<form action='index.php'>
-//       . <input type='submit' value='Play Again?'></form>";
-//       echo "</p>";
-// }
+//
+// $game->checkForWin();
+// $game->gameOver();
 
 ?>

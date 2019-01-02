@@ -1,7 +1,3 @@
-<?php
-session_start();
-
-			?>
 
 
 <!DOCTYPE html>
@@ -16,15 +12,13 @@ session_start();
 	</head>
 
 	<body>
-		
+
 		<div class="main-container">
-			<h2 class="header">Phrase Hunter</h2>
+			<h2 class="zoom header">Phrase Hunter</h2>
             <form action="play.php">
                 <input id="btn__reset" type="submit" value="Start Game" />
             </form>
 		</div>
-<?php
-session_destroy();
-?>
+
 	</body>
 </html>

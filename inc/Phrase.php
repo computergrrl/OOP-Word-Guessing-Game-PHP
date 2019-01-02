@@ -13,7 +13,7 @@ public $phrase;
     $this->phrase = $phrase;//assign the random phrase to the $phrase property
   }
 
-
+/**********************************************/
 
   public function getRandomPhrase()
   {
@@ -31,6 +31,8 @@ public $phrase;
   }
 
 
+/**********************************************/
+
   public function getCharacters()
   {
     $string = strtolower($this->getPhrase());//convert all characters from selected phrase to lowercase
@@ -40,6 +42,7 @@ public $phrase;
      return $chars;
   }
 
+/**********************************************/
 
   public function getLetters()
   {
@@ -49,6 +52,7 @@ public $phrase;
       return $result;
   }
 
+/**********************************************/
 
   public function checkLetter($selected)
   {
@@ -66,8 +70,8 @@ public $phrase;
         $_SESSION['score'] -= 1;
 
         return false;
-    }
+      }
 
   }
-  
+
 }

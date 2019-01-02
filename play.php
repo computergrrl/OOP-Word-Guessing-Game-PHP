@@ -34,21 +34,16 @@ include('inc/header.php');
 
 			<?php
             $game->displayPhrase();
-
-
-							?>
+				?>
 
             </ul>
         </div>
     </div>
     <div id="qwerty" class="section">
         <form action="play.php" method="post">
-      <?php $game->displayKeyboard();
+      <?php $game->displayKeyboard();  ?>
 
-      ?>
-
-
-    </form>
+        </form>
     </div>
 
 </div>

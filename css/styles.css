@@ -109,13 +109,13 @@ cursor:text;
 
 .gamewin {
   font-size: var(--font-size-mid);
-  color: lime;
+  color: #00FF00;
   text-align: center;
 
 }
 .gameover {
   font-size: var(--font-size-mid);
-  color: red;
+  color: #FF0000;
   text-align: center;
 
 }
