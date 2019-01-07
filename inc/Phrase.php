@@ -4,13 +4,14 @@ class Phrase
 {
 public $phrases = array("Not in Kansas anymore" , "May the force be with you" , "The knights who say ni", "I see dead people" , "Shaken not stirred" , "No crying in baseball" , "Houston we have a problem");
 
-public $phrase;
-
-  public function __construct($phrase = 'I see dead people')
+  public function __construct($phrase = null)
   {
     $phrase = $this->getRandomPhrase();//get a random phrase upon any instantiation of this object
+    //
+    // $this->phrase = $phrase;//assign the random phrase to the $phrase property
+    $this->phrase = $phrase;
 
-    $this->phrase = $phrase;//assign the random phrase to the $phrase property
+
   }
 
 /**********************************************/
@@ -23,10 +24,14 @@ public $phrase;
     $pick_phrase = $phrases[$pick];//use that number to specify which prhase to select from the $phrases array
 
     return $pick_phrase;//return the phrase
+
+
   }
+/************************************************/
 
   public function getPhrase()
   {
+
       return $this->phrase;
   }
 
@@ -35,10 +40,11 @@ public $phrase;
 
   public function getCharacters()
   {
-    $string = strtolower($this->getPhrase());//convert all characters from selected phrase to lowercase
+    $string = strtolower($_SESSION['phrase']);
+  //  $string = strtolower($this->getPhrase());//convert all characters from selected phrase to lowercase
 
     $chars = str_split($string);//split the phrase into an array of individual letters
-
+    $_SESSION['letters'] = $chars;
      return $chars;
   }
 
@@ -57,7 +63,7 @@ public $phrase;
   public function checkLetter($selected)
   {
 
-    $letters = $_SESSION['unique_chars'];//array to check for letter
+    $letters = $this->getLetters();//array to check for letter
 
     if(in_array($selected, $letters)) {//if letter is found in array
 

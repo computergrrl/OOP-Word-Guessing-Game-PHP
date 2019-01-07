@@ -5,7 +5,17 @@ include('inc/Phrase.php');
 
 $phrases = new Phrase();
 $game = new Game($phrases);
-include('inc/header.php');
+/* session variable used in checkForWin method, used to store number of characters in phrase that are NOT spaces*/
+$_SESSION['counter'] = 0;
+
+//if a button from the keyboard is picked, set the value of that button to the variable named $selected.
+if(isset($_POST['buttons_array'])) {
+$selected = $_POST['buttons_array'];
+
+//check selected letter to see if it's in the phrase
+$game->phrases->checkLetter($selected);
+
+}
 
 ?>
 <!DOCTYPE html>
